@@ -24,21 +24,9 @@ var min = 0;
 var sec = 0;
 
 function updateTime() {
-	setServerTime();
 	getServerTime();
 	update_time();
 } 
-
-function setServerTime() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
- //    document.getElementById("demo").innerHTML = "set time";
-	}
-  };
-  xhttp.open("GET", "setTime.php", true);
-  xhttp.send();
-}
 
 function getServerTime() {
   var xhttp = new XMLHttpRequest();
@@ -50,7 +38,7 @@ function getServerTime() {
 		sec_offset = arr[2];
 	}
   };
-  xhttp.open("GET", "time.txt", true);
+  xhttp.open("GET", "updateTime.php", true);
   xhttp.send();
 }
 
