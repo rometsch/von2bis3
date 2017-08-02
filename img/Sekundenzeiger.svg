@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   viewBox="0 0 25 370"
-   height="370"
-   width="25"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg3422"
    version="1.1"
-   id="svg3422">
+   inkscape:version="0.91 r13725"
+   width="25"
+   height="370"
+   viewBox="0 0 25 370"
+   sodipodi:docname="Sekundenzeiger.svg">
   <metadata
      id="metadata3428">
     <rdf:RDF>
@@ -18,24 +24,43 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <defs
      id="defs3426" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1443"
+     inkscape:window-height="811"
+     id="namedview3424"
+     showgrid="false"
+     inkscape:zoom="1.8101934"
+     inkscape:cx="-66.788914"
+     inkscape:cy="222.75175"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg3422" />
   <rect
-     ry="0.93222088"
-     y="0.49671209"
-     x="11.047676"
-     height="229.43842"
-     width="2.9019773"
+     style="opacity:1;fill:#d90000;fill-opacity:1;fill-rule:evenodd;stroke:#d60000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      id="rect3432"
-     style="fill:#d90000;fill-rule:evenodd;stroke:#d60000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1;" />
+     width="2.9019775"
+     height="186.27434"
+     x="11.047676"
+     y="43.660774"
+     ry="0.93222088" />
   <circle
-     r="11.670024"
-     cy="185.97269"
-     cx="12.498665"
+     style="fill:#d90000;fill-rule:evenodd;stroke:#d60000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1;"
      id="path3434"
-     style="fill:#d90000;fill-rule:evenodd;stroke:#d60000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1;" />
+     cx="12.498665"
+     cy="185.97269"
+     r="11.670024" />
 </svg>
