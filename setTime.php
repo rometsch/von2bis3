@@ -14,5 +14,9 @@ if (intval($old_sec) +intval($old_min)*60 + (intval($old_hour)+1)*60*60 < intval
 	$txt = "".$hour." ".$min." ".$sec;
 	fwrite($myfile, $txt);
 	fclose($myfile);
+	$old_hour = $hour;
+	$old_min = $min;
+	$old_sec = $sec;
 }
+echo "".$old_hour." ".$old_min." ".$old_sec;
 ?> 
