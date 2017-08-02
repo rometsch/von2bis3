@@ -15,7 +15,9 @@
 
 <script>
 
-// Manage private time via offset variables.
+// Nachtcafe flag
+var nachtcafe_mode = false;
+// Manage nachtcafe time via offset variables.
 var min_offset = 0;
 var sec_offset = 0;
 
@@ -23,8 +25,11 @@ var hour = 2;
 var min = 0;
 var sec = 0;
 
-function updateTime() {
-	getServerTime();
+function toggleMode() {
+	nachtcafe_mode = !nachtcafe_mode;
+	if (nachtcafe_mode) {
+		getServerTime();
+	}
 	update_time();
 } 
 
@@ -55,12 +60,13 @@ srcMin: "",
 srcSec: "",
 canvasID: "",
 intervalMS: parseInt(500,10),
-start_action: function (canvasID, imgSrcClock, imgSrcHour, imgSrcMin, imgSrcSec) {
+start_action: function (canvasID, imgSrcClock, imgSrcHour, imgSrcMin, imgSrcSec, imgSrcLogo) {
     WallClock.canvasID = canvasID;
     WallClock.srcClock = imgSrcClock;
     WallClock.srcHour = imgSrcHour;
     WallClock.srcMin = imgSrcMin;
     WallClock.srcSec = imgSrcSec;
+    WallClock.srcLogo = imgSrcLogo;
     var canvas = document.getElementById(WallClock.canvasID);
     WallClock.size = canvas.width;
 
@@ -69,6 +75,12 @@ start_action: function (canvasID, imgSrcClock, imgSrcHour, imgSrcMin, imgSrcSec)
         WallClock.imageClock = imageClock;
     };
     imageClock.src = WallClock.srcClock;
+
+    var imageLogo = new Image();
+    imageLogo.onload = function () {
+        WallClock.imageLogo = imageLogo;
+    };
+	imageLogo.src = WallClock.srcLogo;
 
     var imageMin = new Image();
     imageMin.onload = function () {
@@ -108,6 +120,11 @@ keepRotating: function () {
     ctx.translate(dx, dy);
     // ctx.rotate(- (WallClock.angleHour + WallClock.angleMin + WallClock.angleSec ));
     ctx.drawImage(WallClock.imageClock, -dx, -dy);
+	if (nachtcafe_mode) {
+		var logoScale = 0.2;
+		ctx.drawImage(WallClock.imageLogo, -WallClock.imageLogo.width*logoScale / 2, -WallClock.imageLogo.height*logoScale / 2,
+					WallClock.imageLogo.width*logoScale, WallClock.imageLogo.height*logoScale);
+	}
     ctx.rotate(angleHour);
     ctx.drawImage(WallClock.imageHour, -WallClock.imageHour.width / 2, -WallClock.imageHour.height / 2);
     ctx.rotate(angleMin - angleHour);
@@ -131,15 +148,20 @@ function Init(){
   clock_canvas.height = baselength;
   register_time_update();
   update_time();
-  WallClock.start_action("clock_canvas", "img/Uhr.png", "img/Stundenzeiger.png", "img/Minutenzeiger.png", "img/Sekundenzeiger.png");
+  WallClock.start_action("clock_canvas", "img/Uhr.png", "img/Stundenzeiger.png", "img/Minutenzeiger.png", "img/Sekundenzeiger.png", "img/hainz.svg");
 };
 
 function update_time() {
-  var d = new Date();
-  min = Number(d.getMinutes());
-  sec = Number(d.getSeconds());
-  min = (min - min_offset + 60) % 60;
-  sec = (sec - sec_offset + 60) % 60;
+	var d = new Date();
+	min = Number(d.getMinutes());
+	sec = Number(d.getSeconds());
+	if (nachtcafe_mode) {
+		hour = 2;
+		min = (min - min_offset + 60) % 60;
+		sec = (sec - sec_offset + 60) % 60;
+	} else {
+		hour = Number(d.getHours());
+	}
 }
 
 function pad(num, size) {
@@ -158,15 +180,8 @@ function register_time_update() {
                         , 500);
 }
 
-//function reset_nachtcafe_time() {
-//  var d = new Date();
-//  min_offset = Number(d.getMinutes());
-//  sec_offset = Number(d.getSeconds());
-//  update_time();
-//}
-
-// Register event for resetting the time to 02:00.
-clock_canvas.addEventListener('click', function() {updateTime()}, false);
+// Register event for changing the mode.
+clock_canvas.addEventListener('click', function() {toggleMode()}, false);
 
 </script>
 
